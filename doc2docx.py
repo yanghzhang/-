@@ -5,23 +5,23 @@ from win32com import client as wc #导入模块
 from docx.shared import RGBColor,Pt
 
 path = os.path.abspath('.')+"\\"
-#print(path)
-#path = 'D:\\word\\' #文件路径
+# print(path)
+# path = 'D:\\word\\' #文件路径
 # print(path)
 # input('a')
 
-files =[]
+files = []
 for file in os.listdir(path):
     if file.endswith(".doc"):
         files.append(path+file)
 # print(files)
 
 # 文件转换doc2docx
-word = wc.Dispatch("Word.Application") # 打开word应用程序
+word = wc.Dispatch("Word.Application")  # 打开word应用程序
 for file in files:
-	doc = word.Documents.Open(file) #打开word文件
-	doc.SaveAs2("{}x".format(file), 12)#另存为后缀为".docx"的文件，其中参数12指docx文件
-	doc.Close() #关闭原来word文件
+    doc = word.Documents.Open(file)  # 打开word文件
+    doc.SaveAs2("{}x".format(file), 12)  # 另存为后缀为".docx"的文件，其中参数12指docx文件
+    doc.Close()  # 关闭原来word文件
 word.Quit()
 
 """
