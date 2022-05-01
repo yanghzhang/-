@@ -1,4 +1,4 @@
- #-*- encoding:utf8 -*-
+# -*- encoding:utf8 -*-
 import os
 import docx
 from win32com import client as wc #导入模块
@@ -7,16 +7,16 @@ from docx.shared import RGBColor,Pt
 path = os.path.abspath('.')+"\\"
 #print(path)
 #path = 'D:\\word\\' #文件路径
-#print(path)
-#input('a')
+# print(path)
+# input('a')
 
 files =[]
 for file in os.listdir(path):
     if file.endswith(".doc"):
         files.append(path+file)
-#print(files)
+# print(files)
 
-#文件转换doc2docx
+# 文件转换doc2docx
 word = wc.Dispatch("Word.Application") # 打开word应用程序
 for file in files:
 	doc = word.Documents.Open(file) #打开word文件
